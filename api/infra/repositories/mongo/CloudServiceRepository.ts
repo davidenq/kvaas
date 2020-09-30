@@ -12,6 +12,6 @@ export class CloudServiceRepository implements CloudServiceRepositoryDomain {
 
     return collections
       .filter(collection => collection.name.includes("_"))
-      .map(collection => collection.name)
+      .map(collection => collection.name.replace("_", ""))
   }
 }
