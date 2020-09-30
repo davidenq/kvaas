@@ -1,0 +1,33 @@
+{
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "compilerOptions": {
+    "target": "es6",
+    "typeRoots": [
+      "api/types",
+      "./node_modules/@types",
+    ],
+    "types": [
+      "node"
+    ],
+    "module": "commonjs",
+    "outDir": "./build/dist",
+    "rootDir": ".",
+    "baseUrl": "./api",
+    "paths": {
+      "*": [
+        "*"
+      ]
+    },
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "sourceRoot": ".",
+    "strict": true
+  }
+}

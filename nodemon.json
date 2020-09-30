@@ -1,0 +1,11 @@
+{
+  "watch": [
+    "**/*/*.ts"
+  ],
+  "ext": "ts,json",
+  "ignore": [
+    "app/**/*.spec.ts",
+    "node_modules"
+  ],
+  "exec": "NODE_ENV=development ts-node -r dotenv/config ./api/main.ts"
+}
