@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "fa35f245-0f93-4d5e-8905-9a7dd8dd826f",
+		"name": "kvaas",
+		"description": "key vault as a service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/health",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Request for test health application"
+			},
+			"response": []
+		},
+		{
+			"name": "Get cloud services",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/services",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"services"
+					]
+				},
+				"description": "You can get a list of the cloud services where there are applications you can access."
+			},
+			"response": []
+		},
+		{
+			"name": "Get registered apps",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/services/_rackspace/projects",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"services",
+						"_rackspace",
+						"projects"
+					]
+				},
+				"description": "You can get a list of the apps you can access. For it, the token is used with un unique user id "
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"cristina.paredes@ppm.com.ec\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Events WebHook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Parse-REST-API-Key",
+						"value": "2f5ae96c-b558-4c7b-a590-a501ae1c3f6c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ref\":\"refs/heads/master\",\n  \"before\":\"898e857077b3f8925e832ba269e6cce73f0f4243\",\n  \"after\":\"bcca507e78d695de0fda3942d9b7c41278614522\",\n  \"repository\":{\n    \"id\":290360615,\n    \"node_id\":\"MDEwOlJlcG9zaXRvcnkyOTAzNjA2MTU=\",\n    \"name\":\"key-vault\",\n    \"full_name\":\"publipromueve/key-vault\",\n    \"private\":true,\n    \"owner\":{\n      \"name\":\"publipromueve\",\n      \"email\":null,\n      \"login\":\"publipromueve\",\n      \"id\":35746020,\n      \"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjM1NzQ2MDIw\",\n      \"avatar_url\":\"https://avatars3.githubusercontent.com/u/35746020?v=4\",\n      \"gravatar_id\":\"\",\n      \"url\":\"https://api.github.com/users/publipromueve\",\n      \"html_url\":\"https://github.com/publipromueve\",\n      \"followers_url\":\"https://api.github.com/users/publipromueve/followers\",\n      \"following_url\":\"https://api.github.com/users/publipromueve/following{/other_user}\",\n      \"gists_url\":\"https://api.github.com/users/publipromueve/gists{/gist_id}\",\n      \"starred_url\":\"https://api.github.com/users/publipromueve/starred{/owner}{/repo}\",\n      \"subscriptions_url\":\"https://api.github.com/users/publipromueve/subscriptions\",\n      \"organizations_url\":\"https://api.github.com/users/publipromueve/orgs\",\n      \"repos_url\":\"https://api.github.com/users/publipromueve/repos\",\n      \"events_url\":\"https://api.github.com/users/publipromueve/events{/privacy}\",\n      \"received_events_url\":\"https://api.github.com/users/publipromueve/received_events\",\n      \"type\":\"Organization\",\n      \"site_admin\":false\n    },\n    \"html_url\":\"https://github.com/publipromueve/key-vault\",\n    \"description\":\"key-vault is a place to safeguard cryptographic keys and other secrets used by cloud apps and services\",\n    \"fork\":false,\n    \"url\":\"https://github.com/publipromueve/key-vault\",\n    \"forks_url\":\"https://api.github.com/repos/publipromueve/key-vault/forks\",\n    \"keys_url\":\"https://api.github.com/repos/publipromueve/key-vault/keys{/key_id}\",\n    \"collaborators_url\":\"https://api.github.com/repos/publipromueve/key-vault/collaborators{/collaborator}\",\n    \"teams_url\":\"https://api.github.com/repos/publipromueve/key-vault/teams\",\n    \"hooks_url\":\"https://api.github.com/repos/publipromueve/key-vault/hooks\",\n    \"issue_events_url\":\"https://api.github.com/repos/publipromueve/key-vault/issues/events{/number}\",\n    \"events_url\":\"https://api.github.com/repos/publipromueve/key-vault/events\",\n    \"assignees_url\":\"https://api.github.com/repos/publipromueve/key-vault/assignees{/user}\",\n    \"branches_url\":\"https://api.github.com/repos/publipromueve/key-vault/branches{/branch}\",\n    \"tags_url\":\"https://api.github.com/repos/publipromueve/key-vault/tags\",\n    \"blobs_url\":\"https://api.github.com/repos/publipromueve/key-vault/git/blobs{/sha}\",\n    \"git_tags_url\":\"https://api.github.com/repos/publipromueve/key-vault/git/tags{/sha}\",\n    \"git_refs_url\":\"https://api.github.com/repos/publipromueve/key-vault/git/refs{/sha}\",\n    \"trees_url\":\"https://api.github.com/repos/publipromueve/key-vault/git/trees{/sha}\",\n    \"statuses_url\":\"https://api.github.com/repos/publipromueve/key-vault/statuses/{sha}\",\n    \"languages_url\":\"https://api.github.com/repos/publipromueve/key-vault/languages\",\n    \"stargazers_url\":\"https://api.github.com/repos/publipromueve/key-vault/stargazers\",\n    \"contributors_url\":\"https://api.github.com/repos/publipromueve/key-vault/contributors\",\n    \"subscribers_url\":\"https://api.github.com/repos/publipromueve/key-vault/subscribers\",\n    \"subscription_url\":\"https://api.github.com/repos/publipromueve/key-vault/subscription\",\n    \"commits_url\":\"https://api.github.com/repos/publipromueve/key-vault/commits{/sha}\",\n    \"git_commits_url\":\"https://api.github.com/repos/publipromueve/key-vault/git/commits{/sha}\",\n    \"comments_url\":\"https://api.github.com/repos/publipromueve/key-vault/comments{/number}\",\n    \"issue_comment_url\":\"https://api.github.com/repos/publipromueve/key-vault/issues/comments{/number}\",\n    \"contents_url\":\"https://api.github.com/repos/publipromueve/key-vault/contents/{+path}\",\n    \"compare_url\":\"https://api.github.com/repos/publipromueve/key-vault/compare/{base}...{head}\",\n    \"merges_url\":\"https://api.github.com/repos/publipromueve/key-vault/merges\",\n    \"archive_url\":\"https://api.github.com/repos/publipromueve/key-vault/{archive_format}{/ref}\",\n    \"downloads_url\":\"https://api.github.com/repos/publipromueve/key-vault/downloads\",\n    \"issues_url\":\"https://api.github.com/repos/publipromueve/key-vault/issues{/number}\",\n    \"pulls_url\":\"https://api.github.com/repos/publipromueve/key-vault/pulls{/number}\",\n    \"milestones_url\":\"https://api.github.com/repos/publipromueve/key-vault/milestones{/number}\",\n    \"notifications_url\":\"https://api.github.com/repos/publipromueve/key-vault/notifications{?since,all,participating}\",\n    \"labels_url\":\"https://api.github.com/repos/publipromueve/key-vault/labels{/name}\",\n    \"releases_url\":\"https://api.github.com/repos/publipromueve/key-vault/releases{/id}\",\n    \"deployments_url\":\"https://api.github.com/repos/publipromueve/key-vault/deployments\",\n    \"created_at\":1598404083,\n    \"updated_at\":\"2020-09-15T22:14:22Z\",\n    \"pushed_at\":1600881072,\n    \"git_url\":\"git://github.com/publipromueve/key-vault.git\",\n    \"ssh_url\":\"git@github.com:publipromueve/key-vault.git\",\n    \"clone_url\":\"https://github.com/publipromueve/key-vault.git\",\n    \"svn_url\":\"https://github.com/publipromueve/key-vault\",\n    \"homepage\":null,\n    \"size\":4,\n    \"stargazers_count\":0,\n    \"watchers_count\":0,\n    \"language\":null,\n    \"has_issues\":true,\n    \"has_projects\":true,\n    \"has_downloads\":true,\n    \"has_wiki\":true,\n    \"has_pages\":false,\n    \"forks_count\":0,\n    \"mirror_url\":null,\n    \"archived\":false,\n    \"disabled\":false,\n    \"open_issues_count\":0,\n    \"license\":null,\n    \"forks\":0,\n    \"open_issues\":0,\n    \"watchers\":0,\n    \"default_branch\":\"master\",\n    \"stargazers\":0,\n    \"master_branch\":\"master\",\n    \"organization\":\"publipromueve\"\n  },\n  \"pusher\":{\"name\":\"davidenq\",\"email\":\"davidenq@users.noreply.github.com\"},\n  \"organization\":{\n    \"login\":\"publipromueve\",\n    \"id\":35746020,\n    \"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjM1NzQ2MDIw\",\n    \"url\":\"https://api.github.com/orgs/publipromueve\",\n    \"repos_url\":\"https://api.github.com/orgs/publipromueve/repos\",\n    \"events_url\":\"https://api.github.com/orgs/publipromueve/events\",\n    \"hooks_url\":\"https://api.github.com/orgs/publipromueve/hooks\",\n    \"issues_url\":\"https://api.github.com/orgs/publipromueve/issues\",\n    \"members_url\":\"https://api.github.com/orgs/publipromueve/members{/member}\",\n    \"public_members_url\":\"https://api.github.com/orgs/publipromueve/public_members{/member}\",\n    \"avatar_url\":\"https://avatars3.githubusercontent.com/u/35746020?v=4\",\n    \"description\":null\n  },\n  \"sender\":{\n    \"login\":\"davidenq\",\n    \"id\":7293598,\n    \"node_id\":\"MDQ6VXNlcjcyOTM1OTg=\",\n    \"avatar_url\":\"https://avatars3.githubusercontent.com/u/7293598?v=4\",\n    \"gravatar_id\":\"\",\n    \"url\":\"https://api.github.com/users/davidenq\",\n    \"html_url\":\"https://github.com/davidenq\",\n    \"followers_url\":\"https://api.github.com/users/davidenq/followers\",\n    \"following_url\":\"https://api.github.com/users/davidenq/following{/other_user}\",\n    \"gists_url\":\"https://api.github.com/users/davidenq/gists{/gist_id}\",\n    \"starred_url\":\"https://api.github.com/users/davidenq/starred{/owner}{/repo}\",\n    \"subscriptions_url\":\"https://api.github.com/users/davidenq/subscriptions\",\n    \"organizations_url\":\"https://api.github.com/users/davidenq/orgs\",\n    \"repos_url\":\"https://api.github.com/users/davidenq/repos\",\n    \"events_url\":\"https://api.github.com/users/davidenq/events{/privacy}\",\n    \"received_events_url\":\"https://api.github.com/users/davidenq/received_events\",\n    \"type\":\"User\",\n    \"site_admin\":false\n  },\n  \"created\":false,\n  \"deleted\":false,\n  \"forced\":false,\n  \"base_ref\":null,\n  \"compare\":\"https://github.com/publipromueve/key-vault/compare/898e857077b3...bcca507e78d6\",\n  \"commits\":[\n    {\n      \"id\":\"bcca507e78d695de0fda3942d9b7c41278614522\",\n      \"tree_id\":\"3ce3964cd92bfd8d6eb7e8c84472c7c3bac793cf\",\n      \"distinct\":true,\n      \"message\":\"new test\",\n      \"timestamp\":\"2020-09-23T12:10:49-05:00\",\n      \"url\":\"https://github.com/publipromueve/key-vault/commit/bcca507e78d695de0fda3942d9b7c41278614522\",\n      \"author\":[{}],\n      \"committer\":[{}],\n      \"added\":[],\n      \"removed\":[],\n      \"modified\":[{}]\n    }\n  ],\n  \"head_commit\":{\n    \"id\":\"bcca507e78d695de0fda3942d9b7c41278614522\",\n    \"tree_id\":\"3ce3964cd92bfd8d6eb7e8c84472c7c3bac793cf\",\n    \"distinct\":true,\n    \"message\":\"new test\",\n    \"timestamp\":\"2020-09-23T12:10:49-05:00\",\n    \"url\":\"https://github.com/publipromueve/key-vault/commit/bcca507e78d695de0fda3942d9b7c41278614522\",\n    \"author\":{\"name\":\"David\",\"email\":\"davip@live.com\",\"username\":\"davidenq\"},\n    \"committer\":{\"name\":\"David\",\"email\":\"davip@live.com\",\"username\":\"davidenq\"},\n    \"added\":[],\n    \"removed\":[],\n    \"modified\":[\"aws/clubmiles/staging.yaml\"]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/event/push",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"push"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Credentials by user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/services/_rackspace/projects/tiendon/environments/staging?kind=admin",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"services",
+						"_rackspace",
+						"projects",
+						"tiendon",
+						"environments",
+						"staging"
+					],
+					"query": [
+						{
+							"key": "kind",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get environments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/services/_rackspace/projects/tiendon/environments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"services",
+						"_rackspace",
+						"projects",
+						"tiendon",
+						"environments"
+					]
+				},
+				"description": "It retrieves the environments associated with your profile and the applications that you have access"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3ff5466c-e092-422b-ab68-4b3980f4d571",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "792ab096-7067-4e4f-bb03-c001f5b6b891",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8eef7847-8abe-4a83-90ba-296738d2eb08",
+			"key": "host",
+			"value": "localhost:3000"
+		},
+		{
+			"id": "bfa5091b-dd13-4055-acd0-8bdb666e4809",
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNzUwZTAxMGYxOTFiMmY1Yzg5MmJlZiIsImlhdCI6MTYwMTUwNjgxNywiZXhwIjoxOTE3MDgyODE3fQ.hYoaVo0aAEPWQAcZ-HAdUwfi4_gg4aKjdY-ALIQLwFQ"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
