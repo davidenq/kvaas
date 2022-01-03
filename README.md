@@ -1,5 +1,4 @@
-# kvaas - Key Vault as a Service para PPM
-
+# kvaas - Key Vault as a Service
 kvaas es una api que tiene la capacidad de almacenar credenciales de acceso y luego poder acceder a ellas a través de una API publica con un token de acceso.
 
 > Está escrito completamente con Node.js y Typescript :)
